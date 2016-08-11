@@ -48,3 +48,4 @@ Temporary Items
 DiscordDiceBot/bin/**
 DiscordDiceBot/BotToken.txt
 packages/**
+DiscordDiceBot/obj/Debug/**
