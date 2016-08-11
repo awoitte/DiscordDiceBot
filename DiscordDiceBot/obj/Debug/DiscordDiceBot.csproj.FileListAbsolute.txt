@@ -23,3 +23,11 @@ c:\users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceB
 c:\users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\obj\Debug\DiscordDiceBot.pdb
 c:\users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\NCalc.dll
 C:\Users\alici\Documents\Visual Studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\BotToken.txt
+C:\Users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\EntityFramework.dll
+C:\Users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\System.Data.SQLite.dll
+C:\Users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\EntityFramework.xml
+C:\Users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alici\documents\visual studio 2015\Projects\DiscordDiceBot\DiscordDiceBot\bin\Debug\System.Data.SQLite.xml

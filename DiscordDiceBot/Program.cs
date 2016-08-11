@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace DiscordDiceBot
 {
     static class Program
     {
-        private static DiscordClient _client;
+        
 
         /// <summary>
         /// The main entry point for the application.
@@ -20,20 +21,8 @@ namespace DiscordDiceBot
 
         static void Start()
         {
-            ;
-            string botToken = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "BotToken.txt"));
-
-            _client = new DiscordClient();
-
-            _client.MessageReceived += async (s, e) =>
-            {
-                if (!e.Message.IsAuthor && MessageHandling.isRollCommand(e.Message.Text))
-                    await e.Channel.SendMessage(MessageHandling.handleRoll(e.Message.Text));
-            };
-
-            _client.ExecuteAndWait(async () => {
-                await _client.Connect(botToken);
-            });
+            var bot = new DiceBot();
+            bot.Start();            
         }
     }
 }

@@ -10,14 +10,47 @@ namespace DiscordDiceBot
     public static class MessageHandling
     {
         public const string rollCommand = "/roll";
+        public const string macroCommand = "/macro";
         public static Regex getNumberOfDice = new Regex(@"(\d*)d");
         public static Regex getValueOfDice = new Regex(@"d(\d+)");
         public static Random rand = new Random();
 
-        public static bool isRollCommand(string message)
+        public static bool isMacroCommane(string message) =>
+            message.StartsWith(macroCommand);
+
+
+        // "/macro macroname [expression]
+        public static string handleMacro(string message, string username, DiceBotDB db, bool logging = true)
         {
-            return message.StartsWith(rollCommand);
+            var id = db.getUserId(username);
+            if (id == -1) id = db.addUser(username);
+
+            var parametersString = message.Replace(macroCommand, "").Trim();
+            var parameters = parametersString.Split(' ').Where(param => param != String.Empty);
+
+            if (parameters.Count() == 0)
+                return "Command not understood";
+            if(parameters.Count() == 1)
+            {
+                var macroExpression = db.getMacro(parameters.First(), id);
+
+                if (macroExpression == DiceBotDB.getMacroError) return "You must set the macro first";
+
+                return handleRoll(macroExpression);
+            }
+            else
+            {
+                // Create a macro
+                var macroTitle = parameters.First();
+                var macroExpression = parameters.Skip(1).Aggregate("", (curr, param) => curr + " " + param);
+
+                return handleRoll(db.addMacro(macroTitle, macroExpression, id));
+            }
         }
+
+
+        public static bool isRollCommand(string message)=>
+            message.StartsWith(rollCommand);
 
         public static string handleRoll(string message, bool logging = true)
         {
@@ -33,6 +66,9 @@ namespace DiscordDiceBot
 
             if (numDice < 0)
                 return "Can't roll negative dice >:)";
+
+            if (numDice > 100)
+                return "YO COOL YER JETS M8";
 
             int diceValue = 0;
 
