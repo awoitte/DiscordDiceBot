@@ -47,3 +47,4 @@ Temporary Items
 .apdisk
 DiscordDiceBot/bin/**
 DiscordDiceBot/BotToken.txt
+packages/**
